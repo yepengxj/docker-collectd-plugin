@@ -58,7 +58,9 @@ class Stats:
             val.type_instance = type_instance
 
         if t:
-            val.time = time.mktime(dateutil.parser.parse(t).timetuple())
+            #always user collectd deamon system time
+            val.time = time.time()
+            #val.time = time.mktime(dateutil.parser.parse(t).timetuple())
         else:
             val.time = time.time()
 
